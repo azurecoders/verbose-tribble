@@ -5,6 +5,7 @@ import User from "@/models";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 // Register User
 
@@ -131,8 +132,13 @@ export const FetchAuthUserAction = async () => {
 
 export const LogOutUserAction = async () => {
   try {
-    const getCookies = await cookies();
-    getCookies.set("token", "");
+    // Clear the token cookie
+    cookies().delete("token");
+
+    return {
+      success: true,
+      message: "Logged out successfully",
+    };
   } catch (error) {
     console.error(error);
     return {
