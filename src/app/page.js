@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FetchAuthUserAction } from "@/action";
 import LogOutComponent from "@/components/logout-component";
