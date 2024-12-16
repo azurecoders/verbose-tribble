@@ -1,8 +1,13 @@
 import { FetchAuthUserAction } from "@/action";
 import LogOutComponent from "@/components/logout-component";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   const { data } = await FetchAuthUserAction();
+
+  if (!data) {
+    redirect("/sign-in");
+  }
   console.log(data);
 
   return (
