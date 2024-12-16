@@ -6,8 +6,6 @@ export default async function Home() {
   const { data } = await FetchAuthUserAction();
   console.log(data);
 
-  if (!data) redirect("/sign-in");
-
   return (
     <div className="flex flex-col gap-3 container mx-auto p-5">
       <h1 className="text-4xl font-bold">NextJS Authentication</h1>
