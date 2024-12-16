@@ -5,6 +5,7 @@ import CommonFormElement from "@/components/form-element";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { BtnValid, initialLoginFormData, UserLoginFormControls } from "@/utils";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -40,6 +41,15 @@ const SignIn = () => {
               />
             </div>
           ))}
+        <p className="mt-5">
+          Dont have an Account?{" "}
+          <Link
+            href="/sign-up"
+            className="text-blue-700 hover:underline transition-all duration-300"
+          >
+            Sign Up
+          </Link>
+        </p>
         <Button
           type="submit"
           disabled={!BtnValid(signInFormData)}

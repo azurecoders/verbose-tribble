@@ -9,6 +9,7 @@ import {
   initialSignUpFormData,
   UserRegistrationFormControls,
 } from "@/utils";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -43,6 +44,15 @@ const SignUp = () => {
               />
             </div>
           ))}
+        <p className="mt-5">
+          Already have an Account?{" "}
+          <Link
+            href="/sign-in"
+            className="text-blue-700 hover:underline transition-all duration-300"
+          >
+            Sign In
+          </Link>
+        </p>
         <Button
           type="submit"
           disabled={!BtnValid(signUpFormData)}
