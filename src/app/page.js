@@ -1,15 +1,8 @@
 import { FetchAuthUserAction } from "@/action";
 import LogOutComponent from "@/components/logout-component";
-import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const { data, error } = await FetchAuthUserAction();
-
-  if (error || !data) {
-    return redirect("/sign-in");
-  }
-
-  console.log(data);
+  const { data } = await FetchAuthUserAction();
 
   return (
     <div className="flex flex-col gap-3 container mx-auto p-5">
