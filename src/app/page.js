@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 
 export default async function Home() {
   const { data } = await FetchAuthUserAction();
+  console.log(data);
 
   if (!data) redirect("/sign-in");
 
